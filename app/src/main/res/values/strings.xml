@@ -25,4 +25,5 @@
 	<string name="metric">Metric</string>
 	<string name="units">Units</string>
 	<string name="name">Name</string>
+	<string name="error_retrieving_weather">Error occurred retrieving weather information</string>
 </resources>
