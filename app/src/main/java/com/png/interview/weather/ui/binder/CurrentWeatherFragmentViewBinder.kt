@@ -17,6 +17,7 @@ class CurrentWeatherFragmentViewBinder(
 
     fun refreshClicked() {
         Toast.makeText(activity, "Refresh Clicked TODO", Toast.LENGTH_LONG).show()
+        goClicked()
     }
 
     fun seeForecastClicked() {
