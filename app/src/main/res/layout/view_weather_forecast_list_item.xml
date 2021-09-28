@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+	<data>
+		<variable
+			name="viewData"
+			type="com.png.interview.weather.ui.model.AvailableWeatherViewData" />
+	</data>
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:visible="@{viewData != null}"
+		tools:padding="16dp">
+
+		<!-- Date -->
+		<TextView
+			android:id="@+id/tv_date"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/date"
+			android:textSize="18sp"
+			android:textStyle="bold"
+			app:layout_constraintTop_toTopOf="parent"
+			app:layout_constraintStart_toStartOf="parent" />
+
+		<!-- Min temp -->
+		<TextView
+			style="@style/TextViewLabelStyle"
+			android:id="@+id/tv_min_temp_label"
+			android:text="@string/min_temperature"
+			android:layout_marginStart="8dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/tv_date"/>
+
+		<TextView
+			style="@style/TextViewValueStyle"
+			android:id="@+id/tv_min_temp_value"
+			android:text="@{viewData.name}"
+			app:layout_constraintStart_toEndOf="@id/tv_min_temp_label"
+			app:layout_constraintTop_toTopOf="@id/tv_min_temp_label"
+			app:layout_constraintBottom_toBottomOf="@id/tv_min_temp_label"
+			tools:text="70.2F"/>
+
+		<!-- Max temp -->
+		<TextView
+			style="@style/TextViewLabelStyle"
+			android:id="@+id/tv_max_temp_label"
+			android:text="@string/max_temperature"
+			android:layout_marginStart="8dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/tv_min_temp_label"/>
+
+		<TextView
+			style="@style/TextViewValueStyle"
+			android:id="@+id/tv_max_temp_value"
+			android:text="@{viewData.date}"
+			app:layout_constraintStart_toEndOf="@id/tv_max_temp_label"
+			app:layout_constraintTop_toTopOf="@id/tv_max_temp_label"
+			app:layout_constraintBottom_toBottomOf="@id/tv_max_temp_label"
+			tools:text="90F"/>
+
+		<!-- Wind speed -->
+		<TextView
+			style="@style/TextViewLabelStyle"
+			android:id="@+id/tv_wind_speed_label"
+			android:text="@string/wind_speed"
+			android:layout_marginStart="8dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/tv_max_temp_label"/>
+
+		<TextView
+			style="@style/TextViewValueStyle"
+			android:id="@+id/tv_wind_speed_value"
+			android:text="@{viewData.temperature}"
+			app:layout_constraintStart_toEndOf="@id/tv_wind_speed_label"
+			app:layout_constraintTop_toTopOf="@id/tv_wind_speed_label"
+			app:layout_constraintBottom_toBottomOf="@id/tv_wind_speed_label"
+			tools:text="6.5 MPH"/>
+
+		<!-- Condition -->
+		<TextView
+			style="@style/TextViewLabelStyle"
+			android:id="@+id/tv_condition"
+			android:text="@string/condition"
+			android:layout_marginStart="8dp"
+			app:layout_constraintStart_toStartOf="parent"
+			app:layout_constraintTop_toBottomOf="@id/tv_wind_speed_label"/>
+
+		<TextView
+			style="@style/TextViewValueStyle"
+			android:id="@+id/tv_condition_value"
+			android:text="@{viewData.condition}"
+			app:layout_constraintStart_toEndOf="@id/tv_condition"
+			app:layout_constraintTop_toTopOf="@id/tv_condition"
+			app:layout_constraintBottom_toBottomOf="@id/tv_condition"
+			tools:text="Partly Cloudy"/>
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

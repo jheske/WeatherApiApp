@@ -19,6 +19,9 @@ class CurrentWeatherFragment : InjectedFragment() {
                 requireActivity(),
                 settingsAction = {
                     findNavController().navigate(CurrentWeatherFragmentDirections.actionCurrentWeatherFragmentToSettingsFragment())
+                },
+                forecastAction = {
+                    findNavController().navigate(CurrentWeatherFragmentDirections.actionCurrentWeatherFragmentToWeatherForecastFragment())
                 }
             )
             this.lifecycleOwner = viewLifecycleOwner

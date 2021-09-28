@@ -7,7 +7,8 @@ import com.png.interview.weather.ui.viewmodel.CurrentWeatherViewModel
 class CurrentWeatherFragmentViewBinder(
     private val viewModel: CurrentWeatherViewModel,
     private val activity: Activity,
-    private val settingsAction: () -> Unit
+    private val settingsAction: () -> Unit,
+    private val forecastAction: () -> Unit
 ) {
 
     val availableWeatherViewData = viewModel.availableCurrentWeatherLiveData
@@ -22,9 +23,7 @@ class CurrentWeatherFragmentViewBinder(
     }
 
     fun seeForecastClicked() {
-        Toast.makeText(activity, "Forecast Clicked TODO", Toast.LENGTH_LONG).show()
-        // Navigate to Forecast screen, pass location in NavArgs
-        // forecastAction(location)
+        forecastAction()
     }
 
     fun settingsClicked() {

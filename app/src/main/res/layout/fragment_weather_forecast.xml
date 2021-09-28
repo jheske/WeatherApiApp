@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_forecast"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:text="@string/forecast"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            tools:listitem="@layout/view_weather_forecast_list_item"
+            app:layout_constraintTop_toBottomOf="@+id/tv_forecast" />
+
+<!--        <include-->
+<!--            android:id="@+id/view_current_weather_error"-->
+<!--            layout="@layout/view_current_weather_error"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            app:errorVisible="@{viewBinder.isError()}"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/et_input"-->
+<!--            tools:visibility="gone" />-->
+
+<!--        <include-->
+<!--            android:id="@+id/view_current_weather_empty"-->
+<!--            layout="@layout/view_current_weather_empty"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            app:emptyVisible="@{viewBinder.isEmpty}"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/et_input"-->
+<!--            tools:visibility="gone" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="viewBinder"
+            type="com.png.interview.weather.ui.binder.WeatherForecastFragmentViewBinder" />
+    </data>
+</layout>
