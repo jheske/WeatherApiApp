@@ -23,6 +23,8 @@ class CurrentWeatherFragmentViewBinder(
 
     fun seeForecastClicked() {
         Toast.makeText(activity, "Forecast Clicked TODO", Toast.LENGTH_LONG).show()
+        // Navigate to Forecast screen, pass location in NavArgs
+        // forecastAction(location)
     }
 
     fun settingsClicked() {
