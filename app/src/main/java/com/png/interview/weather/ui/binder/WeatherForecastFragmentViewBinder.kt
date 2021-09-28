@@ -7,10 +7,7 @@ class WeatherForecastFragmentViewBinder(
     private val viewModel: WeatherForecastViewModel,
     private val activity: Activity,
 ) {
-
-    //val availableWeatherViewData = viewModel.availableCurrentWeatherLiveData
+    val availableWeatherForecastViewData = viewModel.availableWeatherForecastLiveData
     val isEmpty = viewModel.isEmptyVisible
     val isError = viewModel.isErrorVisible
-
-
 }

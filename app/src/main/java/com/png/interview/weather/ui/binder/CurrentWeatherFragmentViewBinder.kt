@@ -15,7 +15,7 @@ class CurrentWeatherFragmentViewBinder(
     val isEmpty = viewModel.isEmptyVisible
     val isError = viewModel.isErrorVisible
 
-    var input: String = ""
+    var input: String = "30024"
 
     fun refreshClicked() {
         Toast.makeText(activity, "Refresh Clicked TODO", Toast.LENGTH_LONG).show()
@@ -34,7 +34,8 @@ class CurrentWeatherFragmentViewBinder(
         if (input.isEmpty()) {
             Toast.makeText(activity, "Please Enter Query", Toast.LENGTH_LONG).show()
         } else if (input.length < 3) {
-            Toast.makeText(activity, "Please Enter More than 3 Characters", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, "Please Enter More than 3 Characters", Toast.LENGTH_LONG)
+                .show()
         } else {
             viewModel.submitCurrentWeatherSearch(input)
         }

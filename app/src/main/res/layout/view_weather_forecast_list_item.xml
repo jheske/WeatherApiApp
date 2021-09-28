@@ -5,8 +5,9 @@
 	<data>
 		<variable
 			name="viewData"
-			type="com.png.interview.weather.ui.model.AvailableWeatherViewData" />
+			type="com.png.interview.weather.ui.model.WeatherForecastDay" />
 	</data>
+
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -36,7 +37,7 @@
 		<TextView
 			style="@style/TextViewValueStyle"
 			android:id="@+id/tv_min_temp_value"
-			android:text="@{viewData.name}"
+			android:text="@{viewData.minTemperatureF}"
 			app:layout_constraintStart_toEndOf="@id/tv_min_temp_label"
 			app:layout_constraintTop_toTopOf="@id/tv_min_temp_label"
 			app:layout_constraintBottom_toBottomOf="@id/tv_min_temp_label"
@@ -54,7 +55,7 @@
 		<TextView
 			style="@style/TextViewValueStyle"
 			android:id="@+id/tv_max_temp_value"
-			android:text="@{viewData.date}"
+			android:text="@{viewData.maxTemperatureF}"
 			app:layout_constraintStart_toEndOf="@id/tv_max_temp_label"
 			app:layout_constraintTop_toTopOf="@id/tv_max_temp_label"
 			app:layout_constraintBottom_toBottomOf="@id/tv_max_temp_label"
@@ -72,7 +73,7 @@
 		<TextView
 			style="@style/TextViewValueStyle"
 			android:id="@+id/tv_wind_speed_value"
-			android:text="@{viewData.temperature}"
+			android:text="@{viewData.windSpeedMph}"
 			app:layout_constraintStart_toEndOf="@id/tv_wind_speed_label"
 			app:layout_constraintTop_toTopOf="@id/tv_wind_speed_label"
 			app:layout_constraintBottom_toBottomOf="@id/tv_wind_speed_label"
