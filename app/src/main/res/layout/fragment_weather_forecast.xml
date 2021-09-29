@@ -18,8 +18,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
-        <!--             app:data="@{viewBinder.availableWeatherForecastViewData}"
- -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/weatherForecastRecyclerView"
             android:layout_width="match_parent"
@@ -29,27 +27,6 @@
             app:data="@{viewBinder.availableWeatherForecastViewData}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/tv_forecast" />
-
-<!--        <include-->
-<!--            android:id="@+id/view_current_weather_error"-->
-<!--            layout="@layout/view_current_weather_error"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="200dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            app:errorVisible="@{viewBinder.isError()}"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/et_input"-->
-<!--            tools:visibility="gone" />-->
-
-<!--        <include-->
-<!--            android:id="@+id/view_current_weather_empty"-->
-<!--            layout="@layout/view_current_weather_empty"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="200dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            app:emptyVisible="@{viewBinder.isEmpty}"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/et_input"-->
-<!--            tools:visibility="gone" />-->
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <data>

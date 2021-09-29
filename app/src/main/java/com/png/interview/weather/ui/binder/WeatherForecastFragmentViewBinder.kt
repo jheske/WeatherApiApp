@@ -8,16 +8,14 @@ import com.png.interview.weather.ui.model.WeatherForecastDay
 import com.png.interview.weather.ui.viewmodel.WeatherForecastViewModel
 
 class WeatherForecastFragmentViewBinder(
-    private val viewModel: WeatherForecastViewModel,
+    viewModel: WeatherForecastViewModel,
     private val activity: Activity,
 ) {
     val availableWeatherForecastViewData = viewModel.availableWeatherForecastLiveData
-    val isEmpty = viewModel.isEmptyVisible
-    val isError = viewModel.isErrorVisible
 }
 
 @BindingAdapter("data")
-fun <T> setRecyclerViewData(recyclerView: RecyclerView, items: List<WeatherForecastDay>?) {
+fun setRecyclerViewData(recyclerView: RecyclerView, items: List<WeatherForecastDay>?) {
     items?.let {
         if (recyclerView.adapter is WeatherForecastAdapter) {
             (recyclerView.adapter as WeatherForecastAdapter).setData(items)

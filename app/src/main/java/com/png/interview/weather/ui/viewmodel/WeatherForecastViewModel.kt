@@ -16,10 +16,6 @@ class WeatherForecastViewModel @Inject constructor(
 
     private val _weatherForecastViewRepresentation = MutableStateFlow<WeatherForecastViewRepresentation>(WeatherForecastViewRepresentation.Empty)
 
-    init {
-        submitWeatherForecastSearch("30024")
-    }
-
     fun submitWeatherForecastSearch(query: String) {
         viewModelScope.launch {
             _weatherForecastViewRepresentation.value = createWeatherForecastRepFromQueryUseCase(query)
@@ -29,15 +25,5 @@ class WeatherForecastViewModel @Inject constructor(
     val availableWeatherForecastLiveData =
         _weatherForecastViewRepresentation
             .map { (it as? WeatherForecastViewRepresentation.WeatherForecastViewRep)?.data?.weatherForecastList }
-            .asLiveData()
-
-    val isEmptyVisible =
-        _weatherForecastViewRepresentation
-            .map { it is WeatherForecastViewRepresentation.Empty }
-            .asLiveData()
-
-    val isErrorVisible =
-        _weatherForecastViewRepresentation
-            .map { it is WeatherForecastViewRepresentation.Error }
             .asLiveData()
 }
