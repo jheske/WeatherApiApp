@@ -1,6 +1,5 @@
 package com.png.interview.weather.ui.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +11,6 @@ import com.png.interview.Utils
 import com.png.interview.databinding.FragmentSettingsBinding
 import com.png.interview.ui.InjectedFragment
 import com.png.interview.weather.ui.viewmodel.SettingsViewModel
-import com.png.interview.weather.ui.viewmodel.WeatherForecastViewModel
-import timber.log.Timber
 
 class SettingsFragment : InjectedFragment() {
 
@@ -45,6 +42,7 @@ class SettingsFragment : InjectedFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        viewModel.initRadioButton(Utils.getUnitsFromSharedPrefs(requireActivity()))
         setupObservers()
     }
 

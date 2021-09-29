@@ -19,7 +19,6 @@ class CurrentWeatherFragment : InjectedFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val units = Utils.getUnitsFromSharedPrefs(requireActivity())
         return FragmentCurrentWeatherBinding.inflate(inflater, container, false).apply {
             viewBinder = CurrentWeatherFragmentViewBinder(
                 getViewModel(),
@@ -30,7 +29,7 @@ class CurrentWeatherFragment : InjectedFragment() {
                 forecastAction = {
                     findNavController().navigate(CurrentWeatherFragmentDirections.actionCurrentWeatherFragmentToWeatherForecastFragment())
                 },
-                units
+                Utils.getUnitsFromSharedPrefs(requireActivity())
             )
             this.lifecycleOwner = viewLifecycleOwner
         }.root
