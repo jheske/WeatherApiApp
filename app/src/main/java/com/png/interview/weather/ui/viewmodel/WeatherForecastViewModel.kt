@@ -28,7 +28,7 @@ class WeatherForecastViewModel @Inject constructor(
 
     val availableWeatherForecastLiveData =
         _weatherForecastViewRepresentation
-            .map { (it as? WeatherForecastViewRepresentation.WeatherForecastViewRep)?.data }
+            .map { (it as? WeatherForecastViewRepresentation.WeatherForecastViewRep)?.data?.weatherForecastList }
             .asLiveData()
 
     val isEmptyVisible =

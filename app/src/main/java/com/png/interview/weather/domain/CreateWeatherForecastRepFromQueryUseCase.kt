@@ -25,7 +25,7 @@ class DefaultCreateWeatherForecastRepFromQueryUseCase @Inject constructor(
                             maxTemperatureF = "${it.day.maxtemp_f} F",
                             minTemperatureC = "${it.day.mintemp_c} C",
                             maxTemperatureC = "${it.day.maxtemp_c} C",
-                            condition = "$it.day.condition.text",
+                            condition = it.day.condition.text,
                             windSpeedMph = "${it.day.maxwind_mph} MPH",
                             windSpeedKph = "${it.day.maxwind_kph} KPH"
                         )

@@ -18,11 +18,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
+        <!--             app:data="@{viewBinder.availableWeatherForecastViewData}"
+ -->
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/weatherForecastRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             tools:listitem="@layout/view_weather_forecast_list_item"
+            app:data="@{viewBinder.availableWeatherForecastViewData}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintTop_toBottomOf="@+id/tv_forecast" />
 
 <!--        <include-->
