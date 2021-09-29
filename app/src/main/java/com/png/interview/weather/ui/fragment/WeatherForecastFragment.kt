@@ -13,6 +13,7 @@ import com.png.interview.weather.ui.binder.WeatherForecastFragmentViewBinder
 import kotlinx.android.synthetic.main.fragment_weather_forecast.*
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import com.png.interview.Utils
 import com.png.interview.weather.ui.viewmodel.WeatherForecastViewModel
 import timber.log.Timber
 import timber.log.Timber.d
@@ -35,7 +36,7 @@ class WeatherForecastFragment : InjectedFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupAdapter()
         val viewModel = ViewModelProvider(this).get(WeatherForecastViewModel::class.java)
-        viewModel.submitWeatherForecastSearch(args.location)
+        viewModel.submitWeatherForecastSearch(args.location, Utils.getUnitsFromSharedPrefs(requireActivity()))
     }
 
     private fun setupAdapter() {

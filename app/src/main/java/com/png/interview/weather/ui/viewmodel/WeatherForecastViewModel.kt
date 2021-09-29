@@ -16,9 +16,9 @@ class WeatherForecastViewModel @Inject constructor(
 
     private val _weatherForecastViewRepresentation = MutableStateFlow<WeatherForecastViewRepresentation>(WeatherForecastViewRepresentation.Empty)
 
-    fun submitWeatherForecastSearch(query: String) {
+    fun submitWeatherForecastSearch(query: String, units: Int) {
         viewModelScope.launch {
-            _weatherForecastViewRepresentation.value = createWeatherForecastRepFromQueryUseCase(query)
+            _weatherForecastViewRepresentation.value = createWeatherForecastRepFromQueryUseCase(query, units)
         }
     }
 

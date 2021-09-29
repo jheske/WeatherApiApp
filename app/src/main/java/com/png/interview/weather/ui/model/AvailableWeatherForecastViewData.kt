@@ -6,12 +6,9 @@ data class AvailableWeatherForecastViewData(
 
 data class WeatherForecastDay(
     val date: String,
-    val minTemperatureF: String,
-    val maxTemperatureF: String,
-    val minTemperatureC: String,
-    val maxTemperatureC: String,
+    val minTemperature: String,
+    val maxTemperature: String,
     val condition: String,
-    val windSpeedKph: String,
-    val windSpeedMph: String
+    val windSpeed: String
 )
 

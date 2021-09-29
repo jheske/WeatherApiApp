@@ -7,13 +7,13 @@ import com.png.interview.weather.ui.model.WeatherForecastViewRepresentation
 import javax.inject.Inject
 
 interface CreateWeatherForecastRepFromQueryUseCase {
-    suspend operator fun invoke(query: String): WeatherForecastViewRepresentation
+    suspend operator fun invoke(query: String, units: Int): WeatherForecastViewRepresentation
 }
 
 class DefaultCreateWeatherForecastRepFromQueryUseCase @Inject constructor(
     private val getWeatherForecastDataUseCase: GetWeatherForecastDataUseCase
 ) : CreateWeatherForecastRepFromQueryUseCase {
-    override suspend fun invoke(query: String): WeatherForecastViewRepresentation {
+    override suspend fun invoke(query: String, units: Int): WeatherForecastViewRepresentation {
         return when (val result = getWeatherForecastDataUseCase(query)) {
             is NetworkResponse.Success -> {
                 val list = arrayListOf<WeatherForecastDay>()
@@ -21,13 +21,10 @@ class DefaultCreateWeatherForecastRepFromQueryUseCase @Inject constructor(
                     list.add(
                         WeatherForecastDay(
                             date = it.date,
-                            minTemperatureF = "${it.day.mintemp_f} F",
-                            maxTemperatureF = "${it.day.maxtemp_f} F",
-                            minTemperatureC = "${it.day.mintemp_c} C",
-                            maxTemperatureC = "${it.day.maxtemp_c} C",
+                            minTemperature = if (units == 1) "${it.day.mintemp_f} F" else "${it.day.mintemp_c} C",
+                            maxTemperature = if (units == 1) "${it.day.maxtemp_f} F" else "${it.day.maxtemp_c} C",
                             condition = it.day.condition.text,
-                            windSpeedMph = "${it.day.maxwind_mph} MPH",
-                            windSpeedKph = "${it.day.maxwind_kph} KPH"
+                            windSpeed = if (units == 1) "${it.day.maxwind_mph} MPH" else "${it.day.maxwind_kph} KPH"
                         )
                     )
                 }

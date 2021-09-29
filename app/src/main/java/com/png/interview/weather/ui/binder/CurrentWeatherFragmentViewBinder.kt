@@ -8,9 +8,9 @@ class CurrentWeatherFragmentViewBinder(
     private val viewModel: CurrentWeatherViewModel,
     private val activity: Activity,
     private val settingsAction: () -> Unit,
-    private val forecastAction: () -> Unit
+    private val forecastAction: () -> Unit,
+    private val units: Int
 ) {
-
     val availableWeatherViewData = viewModel.availableCurrentWeatherLiveData
     val isEmpty = viewModel.isEmptyVisible
     val isError = viewModel.isErrorVisible
@@ -18,7 +18,6 @@ class CurrentWeatherFragmentViewBinder(
     var input: String = "30024"
 
     fun refreshClicked() {
-        Toast.makeText(activity, "Refresh Clicked TODO", Toast.LENGTH_LONG).show()
         goClicked()
     }
 
@@ -37,7 +36,7 @@ class CurrentWeatherFragmentViewBinder(
             Toast.makeText(activity, "Please Enter More than 3 Characters", Toast.LENGTH_LONG)
                 .show()
         } else {
-            viewModel.submitCurrentWeatherSearch(input)
+            viewModel.submitCurrentWeatherSearch(input,units)
         }
     }
 }
