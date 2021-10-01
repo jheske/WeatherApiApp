@@ -1,3 +1,6 @@
 package com.png.interview.weather.api.model
 
-class AutoCompleteResponse : ArrayList<AutcompleteResponseItem>()
+import com.squareup.moshi.JsonClass
+
+@JsonClass(generateAdapter = true)
+class AutoCompleteResponse : ArrayList<AutocompleteResponseItem>()

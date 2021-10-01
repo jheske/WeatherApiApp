@@ -1,13 +1,9 @@
 package com.png.interview.weather.domain
 
 import com.png.interview.api.common_model.NetworkResponse
-import com.png.interview.weather.api.model.AutcompleteResponseItem
 import com.png.interview.weather.ui.model.AutocompleteViewData
 import com.png.interview.weather.ui.model.AutocompleteViewRepresentation
-import com.png.interview.weather.ui.model.AvailableWeatherViewData
-import com.png.interview.weather.ui.model.CurrentWeatherViewRepresentation
-import java.text.DateFormat
-import java.text.SimpleDateFormat
+import timber.log.Timber
 import javax.inject.Inject
 
 interface CreateAutocompleteRepFromQueryUseCase {
@@ -18,6 +14,7 @@ class DefaultCreateAutocompleteRepFromQueryUseCase @Inject constructor(
     private val getAutocompleteDataUseCase: GetAutocompleteDataUseCase
 ) : CreateAutocompleteRepFromQueryUseCase {
     override suspend fun invoke(query: String): AutocompleteViewRepresentation {
+        Timber.d("getAutocompleteDataUseCase $query")
         return when (val result = getAutocompleteDataUseCase(query)) {
             is NetworkResponse.Success -> {
                 val list = arrayListOf<String>()

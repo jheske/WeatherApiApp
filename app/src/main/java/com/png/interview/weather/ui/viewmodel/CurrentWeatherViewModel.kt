@@ -28,7 +28,7 @@ class CurrentWeatherViewModel @Inject constructor(
         }
     }
 
-    fun submitAutocompleteSearch(query: String,units: Int) {
+    fun submitAutocompleteSearch(query: String) {
         viewModelScope.launch {
             _autocompleteViewRepresentation.value = createAutocompleteRepFromQueryUseCase(query)
         }
