@@ -3,8 +3,8 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto">
 	<data>
 		<variable
-			name="viewModel"
-			type="com.png.interview.weather.ui.viewmodel.SettingsViewModel" />
+			name="viewBinder"
+			type="com.png.interview.weather.ui.binder.SettingsViewBinder" />
 	</data>
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
@@ -30,19 +30,22 @@
 			android:layout_marginStart="16dp"
 			android:dividerPadding="8dp"
 			android:showDividers="middle"
-			android:checkedButton="@={viewModel.radioButtonChecked}"
 			app:layout_constraintTop_toTopOf="parent"
 			app:layout_constraintStart_toEndOf="@id/tv_units"
 			app:layout_constraintEnd_toEndOf="parent">
 
 			<RadioButton
+				android:id="@+id/rb_imperial"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:onClick="@{()->viewBinder.setImperial()}"
 				android:text="@string/imperial" />
 
 			<RadioButton
+				android:id="@+id/rb_metric"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:onClick="@{()->viewBinder.setMetric()}"
 				android:text="@string/metric" />
 
 		</RadioGroup>

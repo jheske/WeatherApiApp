@@ -4,13 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModelProvider
 import com.png.interview.R
 import com.png.interview.Utils
 import com.png.interview.databinding.FragmentSettingsBinding
 import com.png.interview.ui.InjectedFragment
-import com.png.interview.weather.ui.viewmodel.SettingsViewModel
+import com.png.interview.weather.ui.binder.SettingsViewBinder
+import kotlinx.android.synthetic.main.fragment_settings.*
 
 class SettingsFragment : InjectedFragment() {
 
@@ -19,38 +18,46 @@ class SettingsFragment : InjectedFragment() {
         const val UNITS_PREF = "UNITS_PREF"
     }
 
-    lateinit var viewModel: SettingsViewModel
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        return FragmentSettingsBinding.inflate(inflater, container, false).apply {
+            viewBinder = SettingsViewBinder(
+                requireActivity(),
+            )
+            this.lifecycleOwner = viewLifecycleOwner
+        }.root
 
-        val binding: FragmentSettingsBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_settings,
-            container,
-            false
-        )
-
-        viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
-        binding.viewModel = viewModel
-        binding.lifecycleOwner = this
-        return binding.root
     }
+
+//    override fun onCreateView(
+//        inflater: LayoutInflater,
+//        container: ViewGroup?,
+//        savedInstanceState: Bundle?
+//    ): View? {
+//
+//        val binding: FragmentSettingsBinding = DataBindingUtil.inflate(
+//            inflater, R.layout.fragment_settings,
+//            container,
+//            false
+//        )
+//
+//        viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
+//        binding.viewModel = viewModel
+//        binding.lifecycleOwner = this
+//        return binding.root
+//    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.initRadioButton(Utils.getUnitsFromSharedPrefs(requireActivity()))
-        setupObservers()
-    }
+        val units = Utils.getUnitsFromSharedPrefs(requireActivity())
 
-    private fun setupObservers() {
-        viewModel.radioButtonChecked.observe(
-            viewLifecycleOwner, {
-                Utils.saveUnitsToSharedPrefs(requireActivity(),it)
-            }
-        )
+        when (units) {
+            1 -> rd_group.check(R.id.rb_imperial)
+            else -> rd_group.check(R.id.rb_metric)
+        }
     }
 }
