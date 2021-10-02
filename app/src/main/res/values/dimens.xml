@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="material_xsmall">2dp</dimen>
+    <dimen name="material_small">4dp</dimen>
+    <dimen name="material_med">8dp</dimen>
+    <dimen name="material_large">16dp</dimen>
+    <dimen name="material_xlarge">32dp</dimen>
+
+    <dimen name="current_weather_location">32sp</dimen>
+    <dimen name="current_weather_temp">48sp</dimen>
+</resources>

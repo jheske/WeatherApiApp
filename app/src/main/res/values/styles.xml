@@ -52,4 +52,25 @@
 		<item name="android:layout_height">wrap_content</item>
 		<item name="android:layout_marginStart">4dp</item>
 	</style>
+
+	<style name="TextViewWindLabelStyle">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_marginTop">8dp</item>
+		<item name="android:textColor">@color/accent_gray</item>
+	</style>
+
+	<style name="TextViewWindValueStyle">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:layout_marginStart">4dp</item>
+		<item name="android:textColor">@color/accent_gray</item>
+	</style>
+
+	<style name="CurrentWeatherTextViewStyle">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:textColor">@color/accent_gray</item>
+	</style>
+
 </resources>

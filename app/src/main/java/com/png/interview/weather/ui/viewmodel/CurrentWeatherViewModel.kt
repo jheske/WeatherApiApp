@@ -40,11 +40,4 @@ class CurrentWeatherViewModel @Inject constructor(
         _currentWeatherViewRepresentation
             .map { it is CurrentWeatherViewRepresentation.Error }
             .asLiveData()
-
-    fun setupUnits(newUnits: Int) {
-        if (newUnits != units) {
-            val currentWeather = availableCurrentWeatherLiveData.value
-            units = newUnits
-        }
-    }
 }

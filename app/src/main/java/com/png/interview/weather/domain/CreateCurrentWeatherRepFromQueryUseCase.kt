@@ -23,6 +23,7 @@ class DefaultCreateCurrentWeatherRepFromQueryUseCase @Inject constructor(
                         date = result.body.location.localtime,
                         temperature = if (units == 1)  "${result.body.current.temp_f} F"  else  "${result.body.current.temp_c} C" ,
                         condition = result.body.current.condition.text,
+                        iconUrl = "https:${result.body.current.condition.icon}",
                         windDirection = result.body.current.wind_dir,
                         windSpeed = if (units == 1) "${result.body.current.gust_mph} MPH" else  "${result.body.current.gust_kph} KPH"
                     )

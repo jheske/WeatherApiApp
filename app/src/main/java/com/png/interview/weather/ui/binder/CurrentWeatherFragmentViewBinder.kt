@@ -1,8 +1,11 @@
 package com.png.interview.weather.ui.binder
 
 import android.app.Activity
+import android.widget.ImageView
 import android.widget.Toast
 import com.png.interview.weather.ui.viewmodel.CurrentWeatherViewModel
+import androidx.databinding.BindingAdapter
+
 
 class CurrentWeatherFragmentViewBinder(
     private val viewModel: CurrentWeatherViewModel,
@@ -15,7 +18,7 @@ class CurrentWeatherFragmentViewBinder(
     val isEmpty = viewModel.isEmptyVisible
     val isError = viewModel.isErrorVisible
 
-    var input: String = "30024"
+    var input: String = ""
 
     fun refreshClicked() {
         goClicked()
@@ -36,7 +39,7 @@ class CurrentWeatherFragmentViewBinder(
             Toast.makeText(activity, "Please Enter More than 3 Characters", Toast.LENGTH_LONG)
                 .show()
         } else {
-            viewModel.submitCurrentWeatherSearch(input,units)
+            viewModel.submitCurrentWeatherSearch(input, units)
         }
     }
 }

@@ -5,6 +5,7 @@ data class AvailableWeatherViewData(
     val date: String,
     val temperature: String,
     val condition: String,
+    val iconUrl: String,
     val windDirection: String,
     val windSpeed: String
 )
