@@ -5,6 +5,10 @@
 		<variable
 			name="viewModel"
 			type="com.png.interview.weather.ui.viewmodel.SettingsViewModel" />
+
+		<variable
+			name="viewBinder"
+			type="com.png.interview.weather.ui.binder.SettingsBinder" />
 	</data>
 	<androidx.constraintlayout.widget.ConstraintLayout
 		android:layout_width="match_parent"
@@ -30,7 +34,7 @@
 			android:layout_marginStart="16dp"
 			android:dividerPadding="8dp"
 			android:showDividers="middle"
-			android:checkedButton="@={viewModel.radioButtonChecked}"
+			android:checkedButton="@={viewBinder.radioButtonValue}"
 			app:layout_constraintTop_toTopOf="parent"
 			app:layout_constraintStart_toEndOf="@id/tv_units"
 			app:layout_constraintEnd_toEndOf="parent">

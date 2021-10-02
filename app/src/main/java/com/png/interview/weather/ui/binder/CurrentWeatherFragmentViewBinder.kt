@@ -1,10 +1,8 @@
 package com.png.interview.weather.ui.binder
 
 import android.app.Activity
-import android.widget.ImageView
 import android.widget.Toast
 import com.png.interview.weather.ui.viewmodel.CurrentWeatherViewModel
-import androidx.databinding.BindingAdapter
 import androidx.fragment.app.FragmentActivity
 import com.png.interview.Keyboard
 

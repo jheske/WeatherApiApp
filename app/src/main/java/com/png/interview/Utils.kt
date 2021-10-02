@@ -22,7 +22,8 @@ class Utils {
         fun getUnitsFromSharedPrefs(activity: Activity): Int {
             val sharedPreference =
                 activity.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-            return sharedPreference.getInt(UNITS_PREF,1)
+            val units = sharedPreference.getInt(UNITS_PREF,1)
+            return units
         }
 
         /**
