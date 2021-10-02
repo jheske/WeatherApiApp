@@ -31,6 +31,13 @@ class CurrentWeatherViewModel @Inject constructor(
             }
             .asLiveData()
 
+    val showData =
+        _currentWeatherViewRepresentation
+            .map {
+                (it as? CurrentWeatherViewRepresentation.AvailableWeatherViewRep)?.data != null
+            }
+            .asLiveData()
+
     val isEmptyVisible =
         _currentWeatherViewRepresentation
             .map { it is CurrentWeatherViewRepresentation.Empty }

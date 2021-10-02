@@ -5,6 +5,8 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.png.interview.weather.ui.viewmodel.CurrentWeatherViewModel
 import androidx.databinding.BindingAdapter
+import androidx.fragment.app.FragmentActivity
+import com.png.interview.Keyboard
 
 
 class CurrentWeatherFragmentViewBinder(
@@ -17,6 +19,7 @@ class CurrentWeatherFragmentViewBinder(
     val availableWeatherViewData = viewModel.availableCurrentWeatherLiveData
     val isEmpty = viewModel.isEmptyVisible
     val isError = viewModel.isErrorVisible
+    val showData = viewModel.showData
 
     var input: String = ""
 
@@ -33,6 +36,8 @@ class CurrentWeatherFragmentViewBinder(
     }
 
     fun goClicked() {
+        Keyboard.dismiss(activity as FragmentActivity)
+
         if (input.isEmpty()) {
             Toast.makeText(activity, "Please Enter Query", Toast.LENGTH_LONG).show()
         } else if (input.length < 3) {
