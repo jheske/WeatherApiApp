@@ -73,4 +73,16 @@
 		<item name="android:textColor">@color/accent_gray</item>
 	</style>
 
+	<style name="WeatherCardStyle" parent="Widget.MaterialComponents.CardView">
+		<item name="cardBackgroundColor">@color/blue_03</item>
+		<item name="cardCornerRadius">10dp</item>
+		<item name="android:layout_margin">@dimen/material_large</item>
+	</style>
+
+	<style name="WeatherForecastCardStyle" parent="WeatherCardStyle">
+		<item name="cardBackgroundColor">@color/blue_03</item>
+		<item name="cardCornerRadius">10dp</item>
+		<item name="android:layout_margin">@dimen/material_small</item>
+	</style>
+
 </resources>

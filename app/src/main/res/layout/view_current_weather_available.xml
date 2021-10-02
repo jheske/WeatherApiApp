@@ -6,9 +6,7 @@
 	<com.google.android.material.card.MaterialCardView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_margin="@dimen/material_large"
-		app:cardBackgroundColor="@color/blue_03"
-		app:cardCornerRadius="10dp">
+		style="@style/WeatherCardStyle">
 
 		<androidx.constraintlayout.widget.ConstraintLayout
 			android:layout_width="match_parent"

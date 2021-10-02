@@ -1,5 +1,6 @@
 package com.png.interview.weather.domain
 
+import com.png.interview.Utils
 import com.png.interview.api.common_model.NetworkResponse
 import com.png.interview.weather.ui.model.AvailableWeatherForecastViewData
 import com.png.interview.weather.ui.model.WeatherForecastDay
@@ -20,7 +21,7 @@ class DefaultCreateWeatherForecastRepFromQueryUseCase @Inject constructor(
                 result.body.forecast.forecastday.forEach {
                     list.add(
                         WeatherForecastDay(
-                            date = it.date,
+                            date = Utils.reformatForecastDate(it.date),
                             minTemperature = if (units == 1) "${it.day.mintemp_f} F" else "${it.day.mintemp_c} C",
                             maxTemperature = if (units == 1) "${it.day.maxtemp_f} F" else "${it.day.maxtemp_c} C",
                             condition = it.day.condition.text,
