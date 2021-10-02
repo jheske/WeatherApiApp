@@ -3,8 +3,6 @@ package com.png.interview.weather.domain
 import com.png.interview.api.common_model.NetworkResponse
 import com.png.interview.weather.ui.model.AvailableWeatherViewData
 import com.png.interview.weather.ui.model.CurrentWeatherViewRepresentation
-import java.text.DateFormat
-import java.text.SimpleDateFormat
 import javax.inject.Inject
 
 interface CreateCurrentWeatherRepFromQueryUseCase {

@@ -13,9 +13,9 @@ class Utils {
 
         fun saveUnitsToSharedPrefs(activity: Activity, units: Int) {
             val sharedPreference =
-                activity.getSharedPreferences(SettingsFragment.PREFS, Context.MODE_PRIVATE)
+                activity.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
             sharedPreference.edit()
-                .putInt(SettingsFragment.UNITS_PREF, units)
+                .putInt(UNITS_PREF, units)
                 .apply()
         }
 

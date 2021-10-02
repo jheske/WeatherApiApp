@@ -1,7 +1,6 @@
 package com.png.interview.weather.ui.fragment
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,9 +14,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import com.png.interview.Utils
 import com.png.interview.weather.ui.viewmodel.WeatherForecastViewModel
-import timber.log.Timber
-import timber.log.Timber.d
-
 
 class WeatherForecastFragment : InjectedFragment() {
     val args: WeatherForecastFragmentArgs by navArgs()
