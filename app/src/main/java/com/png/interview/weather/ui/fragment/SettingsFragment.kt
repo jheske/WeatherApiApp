@@ -32,24 +32,6 @@ class SettingsFragment : InjectedFragment() {
 
     }
 
-//    override fun onCreateView(
-//        inflater: LayoutInflater,
-//        container: ViewGroup?,
-//        savedInstanceState: Bundle?
-//    ): View? {
-//
-//        val binding: FragmentSettingsBinding = DataBindingUtil.inflate(
-//            inflater, R.layout.fragment_settings,
-//            container,
-//            false
-//        )
-//
-//        viewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
-//        binding.viewModel = viewModel
-//        binding.lifecycleOwner = this
-//        return binding.root
-//    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
