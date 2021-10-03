@@ -3,7 +3,6 @@ package com.png.interview.weather.ui.binder
 import android.app.Activity
 import com.png.interview.Utils
 
-
 class SettingsViewBinder(
     private val activity: Activity
 ) {

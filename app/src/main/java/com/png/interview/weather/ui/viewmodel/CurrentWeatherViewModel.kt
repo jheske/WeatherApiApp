@@ -1,5 +1,6 @@
 package com.png.interview.weather.ui.viewmodel
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -15,12 +16,22 @@ class CurrentWeatherViewModel @Inject constructor(
     private val createCurrentWeatherRepFromQueryUseCase: CreateCurrentWeatherRepFromQueryUseCase
 ) : ViewModel() {
 
-    private val _currentWeatherViewRepresentation = MutableStateFlow<CurrentWeatherViewRepresentation>(CurrentWeatherViewRepresentation.Empty)
-    var units = 1
+    private val _currentWeatherViewRepresentation =
+        MutableStateFlow<CurrentWeatherViewRepresentation>(CurrentWeatherViewRepresentation.Empty)
+    var units: Int? = null
+    var location: String = ""
 
-    fun submitCurrentWeatherSearch(query: String,units: Int) {
+    fun resubmitSearch(newUnits: Int) {
+        if (location.isNotBlank()) {
+            submitCurrentWeatherSearch(location, newUnits)
+        }
+    }
+
+    fun submitCurrentWeatherSearch(query: String, units: Int) {
+        location = query
         viewModelScope.launch {
-            _currentWeatherViewRepresentation.value = createCurrentWeatherRepFromQueryUseCase(query, units)
+            _currentWeatherViewRepresentation.value =
+                createCurrentWeatherRepFromQueryUseCase(query, units)
         }
     }
 

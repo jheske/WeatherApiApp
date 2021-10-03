@@ -44,7 +44,7 @@ class CurrentWeatherFragmentViewBinder(
             Toast.makeText(activity, "Please Enter More than 3 Characters", Toast.LENGTH_LONG)
                 .show()
         } else {
-            viewModel.submitCurrentWeatherSearch(input, units)
+            viewModel.submitCurrentWeatherSearch(input,units)
         }
     }
 }

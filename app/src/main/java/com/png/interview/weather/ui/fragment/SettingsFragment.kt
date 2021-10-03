@@ -25,8 +25,8 @@ class SettingsFragment : InjectedFragment() {
     ): View? {
         return FragmentSettingsBinding.inflate(inflater, container, false).apply {
             viewBinder = SettingsViewBinder(
-                requireActivity(),
-            )
+                requireActivity()
+                )
             this.lifecycleOwner = viewLifecycleOwner
         }.root
 
