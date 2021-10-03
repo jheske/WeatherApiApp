@@ -8,19 +8,28 @@ import com.png.interview.weather.ui.model.CurrentWeatherViewRepresentation
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
-import timber.log.Timber
 import javax.inject.Inject
 
 class CurrentWeatherViewModel @Inject constructor(
     private val createCurrentWeatherRepFromQueryUseCase: CreateCurrentWeatherRepFromQueryUseCase
 ) : ViewModel() {
 
-    private val _currentWeatherViewRepresentation = MutableStateFlow<CurrentWeatherViewRepresentation>(CurrentWeatherViewRepresentation.Empty)
-    var units = 1
+    private val _currentWeatherViewRepresentation =
+        MutableStateFlow<CurrentWeatherViewRepresentation>(CurrentWeatherViewRepresentation.Empty)
+    var units: Int? = null
+    var location: String = ""
 
-    fun submitCurrentWeatherSearch(query: String,units: Int) {
+    fun resubmitSearch(newUnits: Int) {
+        if (location.isNotBlank()) {
+            submitCurrentWeatherSearch(location, newUnits)
+        }
+    }
+
+    fun submitCurrentWeatherSearch(query: String, units: Int) {
+        location = query
         viewModelScope.launch {
-            _currentWeatherViewRepresentation.value = createCurrentWeatherRepFromQueryUseCase(query, units)
+            _currentWeatherViewRepresentation.value =
+                createCurrentWeatherRepFromQueryUseCase(query, units)
         }
     }
 
